@@ -7,18 +7,19 @@ import {
   Wrap,
   Text,
   WrapItem,
-  ChakraProvider,
   useToast, 
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Task, CameraReelFill } from "sketch-icons";
-import { extendTheme, withDefaultProps } from '@chakra-ui/react'
-
 import * as Icons from 'sketch-icons';
- 
+import copy from 'clipboard-copy';
+
 const IconGrid = () => {
 
+    const iconColor = useColorModeValue('#2A2238', 'white')
+    
     const [key, setKey] = useState([])
-    const [value, setValue] = useState([])
+    const [value, setValue] = useState([]) 
 
     useEffect(() => {
         console.log('IconGrid');
@@ -37,8 +38,9 @@ const IconGrid = () => {
         color : 'gray.100',  
     }
 
-    const onClick = () =>{
+    const onClick = (item : string) =>{
         console.log(Icons);
+        console.log(item);
         console.log(typeof(Icons));
 
         // const keys = Object.keys(Icons); 
@@ -52,9 +54,10 @@ const IconGrid = () => {
         // console.log(item.keys); 
         // console.log(item.values); 
         console.log('clicked');
+        copy(`<${item} />`);
         toast({
               title: 'Copied.',
-              description: "Task icon was copied",
+              description: `${item} icon was copied`,
               status: 'success',
               duration: 3000,
               isClosable: true,
@@ -82,9 +85,11 @@ const IconGrid = () => {
           <Wrap style={iconStyle} >
                {Object.entries(Icons).map((item) => (
                      <WrapItem>
-                     <Box onClick={onClick}  as='button' shadow="base" w="170px" h="120px" p="5" borderRadius={4}>
-                       <VStack spacing={5}> 
-                            <Icons.Activity />
+                      
+                     <Box onClick={() => onClick(item[0])}  as='button' shadow="base" w="170px" h="120px" p="5" borderRadius={4}>
+                      <VStack spacing={5}> 
+                           {/* <Icons.${item[0]} />  */}
+                           <Icons.Activity color={iconColor} />
                          <Text fontSize="md">{item[0]}</Text>
                        </VStack>
                      </Box>

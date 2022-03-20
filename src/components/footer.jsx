@@ -1,10 +1,13 @@
-import {Text , Box  ,Code , Stack , Image , Heading , Spacer , Button , Flex, Container} from "@chakra-ui/react";
+import {Text , Box  ,Code , Stack , Image ,   useColorModeValue  , Spacer , Button , Flex, Container} from "@chakra-ui/react";
+import packageJson from "sketch-icons/package.json"; 
 import Logo from "../assets/images/sketch-icons.svg";
 const Footer = () => {
 
     const style = {
         fontFamily: "system-ui",
     }
+
+  const textColor = useColorModeValue('gray.600' , 'gray.600')
 
     return (
         <Box style={style} bg="gray.100" px="10" py="5">
@@ -17,20 +20,20 @@ const Footer = () => {
             src={Logo}
             alt="React-icons"
           />
-          <Text size="lg"  >Sketch icons &nbsp;
+          <Text size="lg" color={textColor} >Sketch icons &nbsp;
           <Spacer />
           <span>
-            <Code>v1.1.0</Code>
+            <Code colorScheme={textColor} >v{packageJson.version}</Code>
           </span> 
           </Text>
           
         </Stack> 
         <Spacer />
-        <Text fontSize='sm' >
+        <Text fontSize='sm' color={textColor} >
        Proudly made with ❤️ in India 
         </Text>
         <Spacer />
-        <Text fontSize='sm' >
+        <Text fontSize='sm' color={textColor}>
        Open Source | Released under MIT License | Copyright @ 2022
         </Text>
         </Flex>

@@ -147,7 +147,7 @@ const Usage = () => {
        <br />
       <Heading size="lg">Stroke Width</Heading>
       <Text fontSize="lg" mt="5">
-        Lorem ipsum is <Code colorScheme="blue">stroke</Code>placeholder text
+        Lorem ipsum is <Code colorScheme="blue">strokeWidth</Code>placeholder text
         commonly used in the graphic,
         print, and publishing industries for previewing layouts and visual
         mockups.
