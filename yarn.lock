@@ -3536,7 +3536,7 @@ camelcase-css@^2.0.1:
   resolved "https://registry.yarnpkg.com/camelcase-css/-/camelcase-css-2.0.1.tgz#ee978f6947914cc30c6b44741b6ed1df7f043fd5"
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
-camelcase@^5.0.0, camelcase@^5.3.1:
+camelcase@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
@@ -7978,13 +7978,6 @@ react-focus-lock@2.5.2:
     use-callback-ref "^1.2.5"
     use-sidecar "^1.0.5"
 
-react-icons@^3.0.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.11.0.tgz#2ca2903dfab8268ca18ebd8cc2e879921ec3b254"
-  integrity sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q==
-  dependencies:
-    camelcase "^5.0.0"
-
 react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -8554,10 +8547,10 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
-sketch-icons@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/sketch-icons/-/sketch-icons-0.1.1.tgz#0077f63af55c2cf17576f518175e700e71518ca7"
-  integrity sha512-eu3aHGh38MWLApXdthu4fVpUBTtvIx6rBXEKDxVRVTPeFRtHSACG8XYEoBwhu65Azje1h5o6ACqfzL4E9zPEPw==
+sketch-icons@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/sketch-icons/-/sketch-icons-0.1.2.tgz#a836094d7d30f183b39dba68e005301d8791b66e"
+  integrity sha512-u1mxKI7Liq8qp3zAGPXCAv1A1UCSgiohuzm4np4OotYnz0DFkyBgbwvMPTNaZoyP6D2QzdguE+hArpa27zqs0A==
 
 slash@^3.0.0:
   version "3.0.0"
