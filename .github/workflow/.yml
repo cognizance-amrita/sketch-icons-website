@@ -1,2 +1,0 @@
-- name: Netlify Actions
-  uses: nwtgck/actions-netlify@v1.2.3
