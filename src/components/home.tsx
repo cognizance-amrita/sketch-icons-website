@@ -1,11 +1,10 @@
 import { Hero } from "./hero";
-import IconGrid from "./icongrid";
-import { SearchBar } from "./search";
+import IconGrid from "./icongrid"; 
 const Home = () => { 
+
     return (
         <>
         <Hero />
-        <SearchBar />
         <IconGrid />
         </>
     );

@@ -1,5 +1,6 @@
 import packageJson from "sketch-icons/package.json"; 
-import { Plus, SettingsFill } from "sketch-icons";
+// import { Github,Git, Plus, SettingsFill } from "sketch-icons";
+import { Github,  Git , Category } from "sketch-icons";
 import {
   Flex,
   Heading,
@@ -21,8 +22,6 @@ import {
 import Logo from "../assets/images/sketch-icons.svg";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
 import { useMediaQuery } from "@chakra-ui/react";
-import { useEffect } from "react";
-import  burger from 'react-icons/fa';
 export const Nav = () => {
 
   const iconColor = useColorModeValue('#2A2238', 'white')
@@ -66,23 +65,21 @@ export const Nav = () => {
        bg ="gray.100"
       
        aria-label='Options'
-       icon={<SettingsFill width={20} height={20} />}
+       icon={<Category width={20} height={20} />}
        variant='outline'
      />
      <MenuList>
        <MenuItem  
        style={menuStyle} 
         as={Link} 
-        href="/"
-       icon={<SettingsFill color={iconColor} height="12" width="12" />}  
+        href="/"   
        >
         Home
        </MenuItem>
        <MenuItem  
        style={menuStyle}
        as={Link} 
-        href="/usage"
-       icon={<SettingsFill color={iconColor} height="12" width="12" />}  
+        href="/usage"  
        >
         Usage
        </MenuItem>
@@ -91,7 +88,7 @@ export const Nav = () => {
        isExternal 
        href="https://github.com/garudatechnologydevelopers/Sketch-icons"
        style={menuStyle}
-       icon={<SettingsFill color={iconColor} height="12" width="12" />}  
+       icon={<Github color={iconColor} height="12" width="12" />}  
        >
         Github
        </MenuItem>
@@ -100,7 +97,7 @@ export const Nav = () => {
        isExternal 
        href="https://github.com/garudatechnologydevelopers/Sketch-icons/blob/main/CONTRIBUTING.md"
        style={menuStyle}
-       icon={<SettingsFill color={iconColor} height="12" width="12" />}  
+       icon={<Git color={iconColor} height="12" width="12" />}  
        >
         Contribute
        </MenuItem>
@@ -119,7 +116,7 @@ export const Nav = () => {
       <Button
       
         color="current"
-        leftIcon={<SettingsFill color={iconColor} height="12" width="12" />}
+        leftIcon={<Github color={iconColor} height="14" width="14" />}
         mr="5"
       >
         <LinkOverlay isExternal href="https://github.com/garudatechnologydevelopers/Sketch-icons">Github</LinkOverlay>
@@ -127,7 +124,7 @@ export const Nav = () => {
       <Button
       
         color="current"
-        leftIcon={<Plus color={iconColor} height="12" width="12" />}
+        leftIcon={<Git color={iconColor} height="14" width="14" />}
         mr="5"
       >
         <LinkOverlay isExternal href="https://github.com/garudatechnologydevelopers/Sketch-icons/blob/main/CONTRIBUTING.md">Contribute</LinkOverlay>
