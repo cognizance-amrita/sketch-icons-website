@@ -30,7 +30,7 @@ const Footer = () => {
         </Stack> 
         <Spacer />
         <Text fontSize='sm' color={textColor} >
-       Proudly made with ❤️ in India 
+       Proudly built with ❤️ in India 
         </Text>
         <Spacer />
         <Text fontSize='sm' color={textColor}>
