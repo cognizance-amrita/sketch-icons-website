@@ -1,164 +1,311 @@
-import { useRef, useEffect, useState } from "react";
+/**
+ * import hooks
+ */
+import React, { useRef, useEffect, useState } from 'react';
+/**
+ * retrive the current version from package.json
+ */
+import packageJson from 'sketch-icons/package.json';
+/**
+ * import components
+ */
 import {
-  Box,
-  Container,
-  VStack,
-  Wrap,
-  Text,
-  WrapItem,
-  useToast,
-  useColorModeValue,
-  useMediaQuery,
-  Input,
-  InputGroup,
-  InputRightElement,
-  InputLeftElement,
-  Kbd,
-} from "@chakra-ui/react";
-import { Search } from "sketch-icons";
-import * as Icons from "sketch-icons";
-import copy from "clipboard-copy";  
+    Box,
+    Container,
+    VStack,
+    Wrap,
+    Text,
+    Flex,
+    WrapItem,
+    useToast,
+    useColorModeValue,
+    useMediaQuery,
+    Input,
+    InputGroup,
+    InputRightElement,
+    InputLeftElement,
+    Kbd,
+    Modal,
+    ModalBody,
+    Button,
+    ModalOverlay,
+    ModalHeader,
+    ModalContent,
+    useDisclosure,
+    ModalCloseButton,
+    Code,
+    Heading,
+} from '@chakra-ui/react';
+/**
+ * import sketch icon
+ */
+import { Search } from 'sketch-icons';
+/**
+ * import sketch-icons.json file as webJson
+ */
+import webJson from 'sketch-icons/dist/cdn/sketch-icons.json';
+/**
+ * import sketch-icons.css
+ */
+import 'sketch-icons/dist/cdn/sketch-icons.css';
+/**
+ * import copy to clipboard
+ */
+import copy from 'clipboard-copy';
+/**
+ * import camelcase
+ */
+import camelcase from 'camelcase';
 
 const IconGrid = () => {
-  const iconColor = useColorModeValue("#2A2238", "white");
-  const shadow  = useColorModeValue("base", "")
-  const [isMobile] = useMediaQuery("(max-width: 425px)");
+    /**
+     * color mode of icon color
+     */
+    const iconColor = useColorModeValue('#2A2238', 'white');
+    /**
+     * shadow color of box
+     */
+    const shadow = useColorModeValue('base', '');
+    /**
+     *  mobile view
+     */
+    const [isMobile] = useMediaQuery('(max-width: 425px)');
+    /**
+     *  disclosure for modal
+     */
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    /**
+     *  search input
+     */
+    const searchInput = useRef<HTMLInputElement>(null);
+    /**
+     *  state for font icons
+     */
+    const [webicons, setWebIcons] = useState(' ');
+    /**
+     *  state for webcomponent icon
+     */
+    const [webcomponent, setWebComponent] = useState(' ');
+    /**
+     *  state for unicode value
+     */
+    const [unicode, setUnicode] = useState<string>('');
 
-  const searchInput = useRef<HTMLInputElement>(null);
+    /**
+     *  state for icons to display
+     */
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    const [icons, setIcons] = useState<Object>(' ');
 
-  function handleFocus() {
-    searchInput.current && searchInput.current.focus();
-  }
+    /**
+     *  toast message for copy
+     */
+    const toast = useToast();
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key.toLowerCase() === "b" && e.ctrlKey) {
-      handleFocus();
+    /**
+     *  wrap style css
+     */
+    const wrapStyle = {
+        fontFamily: 'system-ui',
+        color: iconColor,
+    };
+
+    /**
+     *  icon style css
+     */
+    const iconDim = {
+        width: '28px',
+        height: '28px',
+        color: iconColor,
+    };
+
+    /**
+     *  function to focus search input using keyboard shortcut
+     */
+    function handleFocus() {
+        searchInput.current && searchInput.current.focus();
     }
-  });
 
-  const [key, setKey] = useState<Object>([]);
-  const [value, setValue] = useState([]);
-
-  useEffect(() => {
-    setKey(Object.entries(Icons));
-    // console.log("IconGrid");
-    // for (const [key] of Object.entries(Icons)) {
-    //   // setKey(key);
-    //   setValue(value);
-    // }
-  }, []);
-
-  const toast = useToast();
-
-  const iconStyle = {
-    fontFamily: "system-ui",
-    color: "gray.100",
-  };
-
-  const search = (val: string) => {
-    const searchValue = val.toLowerCase();
-    const searchResults = Object.entries(Icons).filter(([icon]) => {
-      console.log("icon", icon);
-      return icon.toLowerCase().includes(searchValue.toLowerCase());
+    /**
+     *  specifying keyboard shortcut for search input focus
+     */
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'b' && e.ctrlKey) {
+            handleFocus();
+        }
     });
-    console.log(searchValue);
-    console.log(searchResults);
-    setKey(searchResults);
-    // setValue(searchResults);
-  };
 
-  const onClick = (item: String) => {
-    console.log(key);
-    // console.log(Icons);
-    console.log(item);
-    // console.log(item[1]);
-    // console.log(typeof Icons);
+    /**
+     *  use effect to get icons
+     */
+    useEffect(() => {
+        setIcons(Object.entries(webJson));
+    }, []);
 
-    // Object.entries(Icons).map((s) => {
-    //   console.log(s[1]);
-    // });
+    /**
+     *  search icon function
+     */
+    const search = (val: string) => {
+        const searchValue = val.toLowerCase();
+        const searchResults = Object.entries(webJson).filter(([key, value]) => {
+            return key.toLowerCase().includes(searchValue.toLowerCase());
+        });
+        setIcons(searchResults);
+    };
 
-    // const keys = Object.keys(Icons);
-    // console.log(keys);
-    // const values = Object.values(Icons);
-    // console.log(values);
-    // const entries = Object.entries(Icons);
-    // console.log(entries);
+    /**
+     *  function to open modal and pass value to modal body
+     */
+    const onClick = (item: [string, string]) => {
+        onOpen();
+        setUnicode(item[1]);
+        setWebIcons(`<i class="sk sk-${item[0]}"></i>`);
+        const camelcaseName = camelcase(item[0], {
+            pascalCase: true,
+        });
+        setWebComponent(`<${camelcaseName} />`);
+    };
 
-    // const test = Object.entries(Icons);
-    // console.log(test[0][0]);
-    // console.log(test[0][1]);
-    // console.log("clicked");
-    copy(`<${item} />`);
-    toast({
-      title: "Copied.",
-      description: `${item} icon was copied`,
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-  };
+    /**
+     *  function to copy value to clipboard
+     */
+    const copyIcon = (item: string) => {
+        copy(`${item}`);
+        toast({
+            title: 'Copied.',
+            description: `${item} icon was copied`,
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        });
+    };
 
-  //     const Iconsss = () => {
-  //         for (const [key, value] of Object.entries(Icons)) {
-  //         return (
-  //             <WrapItem>
-  //               <Box  as='button' shadow="base" w="180px" h="120px" p="5" borderRadius={4}>
-  //                 <VStack spacing={5}>
-  //                   {value}
-  //                   <Text fontSize="md">{key}</Text>
-  //                 </VStack>
-  //               </Box>
-  //             </WrapItem>
-  //         )
-  //     }
-  // }
+    return (
+        <Container maxW="container.xl" mt="10">
+            <InputGroup size="lg" my="10">
+                <InputLeftElement
+                    pointerEvents="none"
+                    color="gray.300"
+                    fontSize="1.2em"
+                    // eslint-disable-next-line react/no-children-prop
+                    children={<Search width={15} height={15} color="#718096" />}
+                />
+                <Input
+                    onChange={(e) => search(e.target.value)}
+                    onFocus={handleFocus}
+                    ref={searchInput}
+                    placeholder="Search"
+                />
+                <InputRightElement width="10.5rem">
+                    <span>
+                        <Kbd>ctrl</Kbd> + <Kbd>b</Kbd>
+                    </span>
+                </InputRightElement>
+            </InputGroup>
+            <Wrap style={wrapStyle}>
+                {Object.entries(icons).map((item, index) => (
+                    <WrapItem key={index}>
+                        <Box
+                            onClick={() => onClick(item[1])}
+                            as="button"
+                            shadow={shadow}
+                            w={isMobile ? '130px' : '170px'}
+                            h={isMobile ? '110px' : '120px'}
+                            p="5"
+                            borderRadius={4}
+                        >
+                            <VStack spacing={5}>
+                                <img
+                                    style={iconDim}
+                                    src={`https://unpkg.com/sketch-icons@${packageJson.version}/main/${item[1][0]}.svg`}
+                                    alt={`${item[0]}`}
+                                />
+                                <Text fontSize="md" isTruncated>
+                                    {item[1][0]}
+                                </Text>
+                            </VStack>
+                        </Box>
+                    </WrapItem>
+                ))}
+            </Wrap>
 
-  return (
-    <Container maxW="container.xl" mt="10">
-      <InputGroup size="lg" my="10">
-        <InputLeftElement
-          pointerEvents="none"
-          color="gray.300"
-          fontSize="1.2em"
-          children={<Search width={15} height={15} color="#718096" />}
-        />
-        <Input
-          onChange={(e) => search(e.target.value)}
-          onFocus={handleFocus}
-          ref={searchInput}
-          placeholder="Search"
-        />
-        <InputRightElement width="10.5rem">
-          <span>
-            <Kbd>ctrl</Kbd> + <Kbd>b</Kbd>
-          </span>
-        </InputRightElement>
-      </InputGroup>
-      <Wrap style={iconStyle}> 
-        {Object.entries(key).map((item) => (
-          <WrapItem>
-            <Box
-              onClick={() => onClick(item[1][0])}
-              as="button" 
-              shadow={shadow}
-              w={isMobile ? "130px" : "170px"}
-              h={isMobile ? "110px" : "120px"}
-              p="5"
-              borderRadius={4}
-            >
-              <VStack spacing={5}>
-                <Icons.Activity color={iconColor} />
-                <Text fontSize="md" isTruncated>
-                  {item[1][0]}
-                </Text>
-              </VStack>
-            </Box>
-          </WrapItem>
-        ))}
-      </Wrap>
-    </Container>
-  );
+            {/* Modal  */}
+
+            <Modal size="lg" isCentered isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader></ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <Heading size="md" mb={4}>
+                            Webcomponent
+                        </Heading>
+                        <Text size="md">Using as web component? Copy, paste, and go.</Text>
+                        <br />
+                        <Flex mb={4}>
+                            <Code
+                                flex="3"
+                                p={2}
+                                bg="blue.50"
+                                borderRadius={6}
+                                display="block"
+                                whiteSpace="pre"
+                                // eslint-disable-next-line react/no-children-prop
+                                children={<Text color="blue.700">{webcomponent}</Text>}
+                            />
+
+                            <Button size="md" onClick={() => copyIcon(webcomponent)} ml={2}>
+                                Copy
+                            </Button>
+                        </Flex>
+                        <Heading size="md" mb={4}>
+                            Icon Font
+                        </Heading>
+                        <Text size="md">Using the web font? Copy, paste, and go.</Text>
+                        <br />
+                        <Flex>
+                            <Code
+                                flex="3"
+                                p={2}
+                                bg="blue.50"
+                                borderRadius={6}
+                                display="block"
+                                whiteSpace="pre"
+                                // eslint-disable-next-line react/no-children-prop
+                                children={<Text color="blue.700">{webicons}</Text>}
+                            />
+
+                            <Button size="md" onClick={() => copyIcon(webicons)} ml={2}>
+                                Copy
+                            </Button>
+                        </Flex>
+                        <br />
+                        <Heading size="md" mb={4}>
+                            Unicode Value
+                        </Heading>
+                        <Text size="md">The unicode value for the icon.</Text>
+                        <br />
+                        <Flex mb={4}>
+                            <Code
+                                flex="3"
+                                p={2}
+                                bg="blue.50"
+                                borderRadius={6}
+                                display="block"
+                                whiteSpace="pre"
+                                // eslint-disable-next-line react/no-children-prop
+                                children={<Text color="blue.700">{unicode}</Text>}
+                            />
+
+                            <Button size="md" onClick={() => copyIcon(unicode)} ml={2}>
+                                Copy
+                            </Button>
+                        </Flex>
+                    </ModalBody>
+                </ModalContent>
+            </Modal>
+        </Container>
+    );
 };
 
 export default IconGrid;
