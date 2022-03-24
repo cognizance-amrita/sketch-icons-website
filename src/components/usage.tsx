@@ -1,4 +1,4 @@
-import packageJson from "sketch-icons/package.json"; 
+import packageJson from "sketch-icons/package.json";
 import {
   Container,
   Text,
@@ -88,16 +88,20 @@ const Usage = () => {
         the following cdn to your HTML file.
       </Text>
       <br />
-        <Code
-          display="block"
-          whiteSpace="pre"
-          children={`
+      <Code
+        display="block"
+        whiteSpace="pre"
+        children={`
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/sketch-icons@${packageJson.version}/dist/cdn/icons.css" />        
         `}
-        />
+      />
       <br />
       <Heading size="lg">Example</Heading>
-      <Text fontSize="lg" mt="5">To utilize the pre-built icon from the sketch icons bundle, populate the <Code colorScheme="blue">class</Code> property on the <Code colorScheme="blue">i</Code>  tag</Text>
+      <Text fontSize="lg" mt="5">
+        To utilize the pre-built icon from the sketch icons bundle, populate the{" "}
+        <Code colorScheme="blue">class</Code> property on the{" "}
+        <Code colorScheme="blue">i</Code> tag
+      </Text>
       <br />
       <Code
         display="block"
@@ -115,23 +119,25 @@ const Usage = () => {
         </body> 
       `}
       />
-      
+
       <br />
       <Heading size="lg">Using CSS Selector</Heading>
       <Text fontSize="lg" mt="5">
-       You can change the properties of icon using the css selector. The selector is <Code colorScheme="blue">.sk-</Code> followed by the icon name.      
+        You can change the properties of icon using the css selector. The
+        selector is <Code colorScheme="blue">.sk-</Code> followed by the icon
+        name.
       </Text>
       <br />
-        <Code
-          display="block"
-          whiteSpace="pre"
-          children={`
+      <Code
+        display="block"
+        whiteSpace="pre"
+        children={`
             .sk-alarm-fill {
               color: red;
               font-size: 35px;
             }       
         `}
-        />
+      />
       <br />
       <Heading size="lg">Size</Heading>
       <Text fontSize="lg" mt="5">
@@ -182,6 +188,16 @@ const Usage = () => {
         }
       `}
       />
+      <br />
+      <Stack direction="row">
+        <Badge colorScheme="red" fontSize="lg">
+          Note
+        </Badge>
+        <Text fontSize="lg">
+          Only simple icons will have access to the{" "}
+          <Code colorScheme="blue">color</Code> property.
+        </Text>
+      </Stack>
       <br />
       <Heading size="lg">Stroke</Heading>
       <Text fontSize="lg" mt="5">
@@ -236,8 +252,20 @@ const Usage = () => {
       `}
       />
       <br />
+      <Heading size="lg">Issues</Heading>
+      <Text mt="5" fontSize="lg">
+        Have you discovered any problems? Please report your{" "}
+        <Link
+          color="blue.500"
+          href="https://github.com/garudatechnologydevelopers/Sketch-icons/issues"
+        >
+          Issues here.
+        </Link>{" "}
+        We will be delighted to learn this.
+      </Text>
+      <br />
       <Heading size="lg">Contributing</Heading>
-      <Text mt="5">
+      <Text mt="5" fontSize="lg">
         Refer to the{" "}
         <Link
           color="blue.500"
@@ -249,7 +277,7 @@ const Usage = () => {
       </Text>
       <br />
       <Heading size="lg">Code of Conduct</Heading>
-      <Text mt="5">
+      <Text mt="5" fontSize="lg">
         Refer to the{" "}
         <Link
           color="blue.500"
@@ -261,7 +289,7 @@ const Usage = () => {
       </Text>
       <br />
       <Heading size="lg">Edit this Document</Heading>
-      <Text mt="5">
+      <Text mt="5" fontSize="lg">
         To make changes to this document, go to the{" "}
         <Link
           color="blue.500"
@@ -269,6 +297,11 @@ const Usage = () => {
         >
           Docs.
         </Link>
+      </Text>
+      <br />
+      <Heading size="lg">License</Heading>
+      <Text mt="5" fontSize="lg">
+        MIT License Copyright (c) 2022 Garuda Technology
       </Text>
       <br />
       <br />
