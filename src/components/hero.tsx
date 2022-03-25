@@ -1,5 +1,5 @@
 import { Container, useMediaQuery ,Heading, HStack, Button, Link } from "@chakra-ui/react";
-import { NpmColor , AtomColor} from "sketch-icons";
+
 export const Hero = () => {
     const style = {
         textDecoration : "none"
@@ -9,7 +9,7 @@ export const Hero = () => {
   return (
     <Container maxW="container.xl" centerContent mt={isMobile ? "1" : "10"}>
       <Heading fontFamily="system-ui" size={isMobile ? "lg" : "xl"}>
-      500+ Open source icons that are simply stunning
+      600+ Open source icons that are simply stunning
       </Heading>
       <HStack mt="6">
           <Link style={style} href="/usage" >

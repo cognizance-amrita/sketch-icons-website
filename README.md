@@ -10,7 +10,7 @@ https://sketch-icons.gitbook.io/docs/
 [![yarn](https://img.shields.io/static/v1?label=yarn&message=1.22.17&color=blue)](https://www.npmjs.com/package/sketch-icons)
 [![npm downloads](https://img.shields.io/npm/dm/sketch-icons.svg?style=flat-square&color=purple)](https://www.npmjs.com/package/sketch-icons)
 [![yarn](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://www.npmjs.com/package/sketch-icons)
-
+[![](https://data.jsdelivr.com/v1/package/gh/garudatechnologydevelopers/Sketch-icons/badge)](https://www.jsdelivr.com/package/gh/garudatechnologydevelopers/Sketch-icons)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/92d24687-7cea-44c2-96cd-a3bf0313d199/deploy-status)](https://app.netlify.com/sites/sketch-icons/deploys)
 
 ![sketch-icons](./src/assets/images/banner.svg)

@@ -46,7 +46,7 @@ import {
 /**
  * import sketch icon
  */
-import { SaveAlt, Search } from "sketch-icons";
+import { Search } from "sketch-icons";
 /**
  * import sketch-icons.css
  */
@@ -268,6 +268,7 @@ const IconGrid = () => {
         {Object.values(Icons).map((icon, index) => (
           <WrapItem key={index}>
             <Box
+            overflow='hidden'
               onClick={() => onClick(icon.name)}
               as="button"
               shadow={shadow}
@@ -285,10 +286,10 @@ const IconGrid = () => {
                       : `https://unpkg.com/sketch-icons@${packageJson.version}/main/simple/${icon.name}.svg`
                   }
                   alt={`${icon.name}`}
-                />
+                /> 
                 <Text fontSize="sm" isTruncated>
                   {icon.name}
-                </Text>
+                </Text> 
               </VStack>
             </Box>
           </WrapItem>

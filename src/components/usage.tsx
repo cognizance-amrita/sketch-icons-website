@@ -96,6 +96,23 @@ const Usage = () => {
         `}
       />
       <br />
+      <Stack direction="row">
+        <Badge colorScheme="red" fontSize="lg">
+          Note
+        </Badge>
+        <Text fontSize="lg">
+        You can also{" "}
+        <Link
+          color="blue.500"
+          href={`https://cdn.jsdelivr.net/gh/garudatechnologydevelopers/Sketch-icons@${packageJson.version}/sketch-icons-cdn.zip`}
+        >
+          download the CDN
+        </Link>
+        {" "}and use it in your own projects.
+        </Text>
+      </Stack>
+      <br />
+      
       <Heading size="lg">Example</Heading>
       <Text fontSize="lg" mt="5">
         To utilize the pre-built icon from the sketch icons bundle, populate the{" "}
