@@ -3,11 +3,11 @@
 
 Sketch-icons is an icon library that makes using icons simple for everyone.
 
-https://sketch-icons.gitbook.io/docs/
 
 [![ChakraUI](https://img.shields.io/static/v1?label=builtwith&message=Chakra&color=blue)](https://github.com/chakra-ui/chakra-ui)
 [![npm](https://img.shields.io/static/v1?label=npm&message=6.14.16&color=red)](https://www.npmjs.com/package/sketch-icons)
 [![yarn](https://img.shields.io/static/v1?label=yarn&message=1.22.17&color=blue)](https://www.npmjs.com/package/sketch-icons)
+[![total downloads](https://img.shields.io/badge/total%20downloads-30k%2B-orange)](https://www.npmjs.com/package/sketch-icons)
 [![npm downloads](https://img.shields.io/npm/dm/sketch-icons.svg?style=flat-square&color=purple)](https://www.npmjs.com/package/sketch-icons)
 [![yarn](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://www.npmjs.com/package/sketch-icons)
 [![](https://data.jsdelivr.com/v1/package/gh/garudatechnologydevelopers/Sketch-icons/badge)](https://www.jsdelivr.com/package/gh/garudatechnologydevelopers/Sketch-icons)
