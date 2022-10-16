@@ -81,6 +81,25 @@ const Usage = () => {
       `}
       />
       <br />
+<Code
+        display="block"
+        whiteSpace="pre"
+        children={`
+     import { GitHubColor } from "sketch-icons";
+
+class Icons extends React.Component {
+  render() {
+    return (
+      <h2>
+        I am a <GitHubColor /> contributor />
+      </h2>
+    );
+  }
+}
+      `}
+      />
+      <br />
+
       <Heading size="lg">Using CDN</Heading>
       <br />
       <Text fontSize="lg" mt="5">
