@@ -87,15 +87,15 @@ const Usage = () => {
         children={`
      import { GitHubColor } from "sketch-icons";
 
-class Icons extends React.Component {
-  render() {
-    return (
-      <h2>
-        I am a <GitHubColor /> contributor />
-      </h2>
-    );
-  }
-}
+      class Icons extends React.Component {
+        render() {
+          return (
+            <h2>
+              I am a <GitHubColor /> contributor />
+            </h2>
+          );
+        }
+      }
       `}
       />
       <br />
