@@ -69,7 +69,7 @@ export const Nav = () => {
                         <MenuItem
                             as={Link}
                             isExternal
-                            href="https://github.com/garudatechnologydevelopers/Sketch-icons"
+                            href="https://github.com/cognizance-amrita/Sketch-icons"
                             style={menuStyle}
                             icon={<Github color={iconColor} height="12" width="12" />}
                         >
@@ -78,7 +78,7 @@ export const Nav = () => {
                         <MenuItem
                             as={Link}
                             isExternal
-                            href="https://github.com/garudatechnologydevelopers/Sketch-icons/blob/main/CONTRIBUTING.md"
+                            href="https://github.com/cognizance-amrita/Sketch-icons/blob/main/CONTRIBUTING.md"
                             style={menuStyle}
                             icon={<Git color={iconColor} height="12" width="12" />}
                         >
@@ -95,14 +95,14 @@ export const Nav = () => {
                         <LinkOverlay href="/usage">Usage</LinkOverlay>
                     </Button>
                     <Button color="current" leftIcon={<Github color={iconColor} height="14" width="14" />} mr="5">
-                        <LinkOverlay isExternal href="https://github.com/garudatechnologydevelopers/Sketch-icons">
+                        <LinkOverlay isExternal href="https://github.com/cognizance-amrita/Sketch-icons">
                             Github
                         </LinkOverlay>
                     </Button>
                     <Button color="current" leftIcon={<Git color={iconColor} height="14" width="14" />} mr="5">
                         <LinkOverlay
                             isExternal
-                            href="https://github.com/garudatechnologydevelopers/Sketch-icons/blob/main/CONTRIBUTING.md"
+                            href="https://github.com/cognizance-amrita/Sketch-icons/blob/main/CONTRIBUTING.md"
                         >
                             Contribute
                         </LinkOverlay>
